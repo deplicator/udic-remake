@@ -4,59 +4,494 @@
         <title>Ultima Dragons Internet Chapter</title>
         <!--<link rev="made" href="http://www.dirtside.com/herrin/">-->
         <link rel="icon" type="image/png" href="favicon.ico">
-        <link rel="stylesheet" type="text/css" href="default.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="libs/jquery-1.11.2.min.js"></script>
+        <script src="libs/bootstrap.min.js"></script>
     </head>
 
     <body>
+        <div class="container-fluid">
 
-        <h1><img src="inline/udiclog4.gif" alt="Ultima Dragons Internet Chapter -==(UDIC)==-"></h1>
+            <h1><img id="logo" src="images/main.jpg" alt="Ultima Dragons Internet Chapter -==(UDIC)==-"></h1>
 
-        <p>The Ultima Dragons are a large virtual club founded in 1992 on
-        Prodigy who have since moved to the Internet due to Prodigy's
-        outrageous rate structure. The club is dedicated to helping
-        others with their Ultima questions, discussing Ultima, and, most
-        obviously, sharing information and creative exploits.</p>
+            <section id="main">
+                <p>The Ultima Dragons are a large virtual club founded in 1992 on
+                Prodigy who have since moved to the Internet due to Prodigy's
+                outrageous rate structure. The club is dedicated to helping
+                others with their Ultima questions, discussing Ultima, and, most
+                obviously, sharing information and creative exploits.</p>
 
-        <p>If you have played an Ultima, are willing to help others with
-        their Ultima questions, and would like to be a member of the
-        Ultima Dragons, please <a href="join.html">fill out the join form</a>
-        (Or e-mail join@udic.org with your real name, e-mail address, and
-        chosen Dragon name). A Dragon on the greeting team will send you
-        email within a week, welcoming you to the club.</p>
+                <p>If you have played an Ultima, are willing to help others with
+                their Ultima questions, and would like to be a member of the
+                Ultima Dragons, please <a href="#join">fill out the join form</a>
+                (Or e-mail join@udic.org with your real name, e-mail address, and
+                chosen Dragon name). A Dragon on the greeting team will send you
+                email within a week, welcoming you to the club.</p>
 
-        <ul class="bullets-dragon">
-            <li><a href="minifaq.html">Ultima Dragons FAQ</a></li>
-            <li><a href="resources.html">Internet Resources &amp; Links</a></li>
-            <li> <a href="join.html">Join the Dragons</a></li>
-        </ul>
+                <ul class="bullets-dragon">
+                    <li><a href="minifaq.html">Ultima Dragons FAQ</a></li>
+                    <li><a href="#resources">Internet Resources &amp; Links</a></li>
+                    <li> <a href="#join">Join the Dragons</a></li>
+                </ul>
 
-        <p>
-            <img src="inline/wiz.gif" alt="wizard animation"> Find Ultima help on the three Usenet
-            newsgroups:
-            <a href="news:rec.games.computer.ultima.dragons">
-                rec.games.computer.ultima.dragons
-            </a>,
-            <a href="news:rec.games.computer.ultima.online">
-                rec.games.computer.ultima.online
-            </a>, and
-            <a href="news:rec.games.computer.ultima.series">
-                rec.games.computer.ultima.series
-            </a>.
-        </p>
+                <p>
+                    <img src="images/wiz.gif" alt="wizard animation"> Find Ultima help on the three Usenet
+                    newsgroups:
+                    <a href="news:rec.games.computer.ultima.dragons">
+                        rec.games.computer.ultima.dragons
+                    </a>,
+                    <a href="news:rec.games.computer.ultima.online">
+                        rec.games.computer.ultima.online
+                    </a>, and
+                    <a href="news:rec.games.computer.ultima.series">
+                        rec.games.computer.ultima.series
+                    </a>.
+                </p>
+            </section>
 
-        <hr class="hr-ankh">
+            <section id="join">
+                <h2>I'd like to join!</h2>
 
-        <p>
-            <a class="link-img" href="minifaq.html">
-                <img src="inline/p3faq.gif" alt="FAQ">
-            </a>
-            <a class="link-img" href="resources.html">
-                <img src="inline/p3links.gif" alt="Links">
-            </a>
-            <a class="link-img" href="http://wou.udic.org/~redjr/">
-                <img src="inline/p3ultima.gif" alt="Ultima">
-            </a>
-        </p>
+                <p>
+                    If you have played an Ultima, are willing to help others with their Ultima questions,
+                    and would like to be a member of the Ultima Dragons, please fill out this form. Rainbow
+                    Dragon will get back to you shortly, welcoming you to the club. If for some reason the
+                    form fails to work, send e-mail to <a href="mailto:join@udic.org">join@udic.org</a> with
+                    your real name, e-mail address, and chosen Dragon name.
+                </p>
+
+                <hr>
+
+                <form id="form-join" action="/members/processjoin.cgi" method="post">
+                    <input type="hidden" name="filename" value="process.html">
+                    <input type="hidden" name="process" value="new">
+
+                    <h3 class="clear">Required:</h3>
+
+                    <div class="form-group">
+                        <label>Your dragon name:</label>
+                        <input type="text" size="40" name="dragonname">
+                        <p>
+                            (Tip: Don't pick something that's been in an Ultima; pick something that ought
+                            to be. &quot;Dragon&quot; will be automatically appended. You may want to check
+                            the <a href="members/roster.cgi">master roster</a> of current members before
+                            choosing a dragon name.)
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your real name:</label>
+                        <input type="text" size="40" name="name">
+                        <p>
+                            If you don't want to give your whole real name (first and last),
+                            <a href="#join-requirements">read this</a>.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your e-mail address:</label>
+                        <input type="text" size="40" name="email">
+                        <p>
+                            A member of the greeting team will contact you at this address before approving your
+                            application. If you do not respond, your application will be rejected.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Password:</label>
+                        <input type="password" size="10" name="pw">
+
+                        <label>Again for verification:</label>
+                        <input type="password" size="10" name="pwverify">
+                        <p>
+                            (Please choose something easy to remember. This will be used at a later date for
+                            automated roster updating)
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ultima's you have played:</label>
+                            <div class="colums-two">
+                                <ul class="column bullets-none">
+                                    <li><input type="checkbox" name="playeduone" value="I">Ultima I</li>
+                                    <li><input type="checkbox" name="playedutwo" value="II">Ultima II</li>
+                                    <li><input type="checkbox" name="playeduthree" value="III">Ultima III</li>
+                                    <li><input type="checkbox" name="playedufour" value="IV">Ultima IV</li>
+                                    <li><input type="checkbox" name="playedufive" value="V">Ultima V</li>
+                                    <li><input type="checkbox" name="playedusix" value="VI">Ultima VI</li>
+                                    <li><input type="checkbox" name="playeduseven" value="VII">Ultima VII</li>
+                                    <li><input type="checkbox" name="playedusevenptwo" value="VIIp2">Ultima VII Part II</li>
+                                </ul>
+                                <ul class="column bullets-none">
+                                    <li><input type="checkbox" name="playedueight" value="VIII">Ultima VIII</li>
+                                    <li><input type="checkbox" name="playedunine" value="IX">Ultima IX</li>
+                                    <li><input type="checkbox" name="playeduwone" value="UW1">Ultima Underworld</li>
+                                    <li><input type="checkbox" name="playeduwtwo" value="UW2">Ultima Underworld II</li>
+                                    <li><input type="checkbox" name="playedsavage" value="Savage">Savage Empire</li>
+                                    <li><input type="checkbox" name="playedmartian" value="Martian">Martian Dreams</li>
+                                    <li><input type="checkbox" name="playednintendo" value="Nintendo">A Nintendo Ultima</li>
+                                    <li><input type="checkbox" name="playeduonline" value="Online">Ultima Online</li>
+                                </ul>
+                            </div>
+                        <p class="clear">
+                            If you havn't played an Ultima, <a href="#join-requirements">read this</a>.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ultima's you have won:</label>
+                        <div class="colums-two">
+                            <ul class="column bullets-none">
+                                <li><input type="checkbox" name="wonuone" value="I">Ultima I</li>
+                                <li><input type="checkbox" name="wonutwo" value="II">Ultima II</li>
+                                <li><input type="checkbox" name="wonuthree" value="III">Ultima III</li>
+                                <li><input type="checkbox" name="wonufour" value="IV">Ultima IV</li>
+                                <li><input type="checkbox" name="wonufive" value="V">Ultima V</li>
+                                <li><input type="checkbox" name="wonusix" value="VI">Ultima VI</li>
+                                <li><input type="checkbox" name="wonuseven" value="VII">Ultima VII</li>
+                                <li><input type="checkbox" name="wonusevenptwo" value="VIIp2">Ultima VII Part II</li>
+                            </ul>
+                            <ul class="column bullets-none">
+                                <li><input type="checkbox" name="wonueight" value="VIII">Ultima VIII</li>
+                                <li><input type="checkbox" name="wonunine" value="IX">Ultima IX</li>
+                                <li><input type="checkbox" name="wonuwone" value="UW1">Ultima Underworld</li>
+                                <li><input type="checkbox" name="wonuwtwo" value="UW2">Ultima Underworld II</li>
+                                <li><input type="checkbox" name="wonsavage" value="Savage">Savage Empire</li>
+                                <li><input type="checkbox" name="wonmartian" value="Martian">Martian Dreams</li>
+                                <li><input type="checkbox" name="wonnintendo" value="Nintendo">A Nintendo Ultima</li>
+                                <li><input type="checkbox" name="wonuonline" value="Online">Ultima Online</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="clear">Optional:</h3>
+
+                    <div class="form-group">
+                        <label>Date of birth (YYYY-MM-DD):</label>
+                        <input type="text" name="birthdate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <select name="gender">
+                            <option value="U" SELECTED>Private</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Unsure</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Web home page URL:</label>
+                        <input type="text" size="40" name="wwwurl"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Old Dragon Name:</label>
+                        <input type="text" size="40" name="otherdnames">
+                        <p>
+                            If you have been a member of the Ultima Dragons before (e.g. on Prodigy), enter any
+                            Dragon names you have used:
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address (Line 1):</label>
+                        <input type="text" size="60" name="addr1">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address (Line 2):</label>
+                        <input type="text" size="60" name="addr2">
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label>City:</label>
+                        <input type="text" size="22" name="city">
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label>State:</label>
+                        <input type="text" size="2" name="state">
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label>Zip-Code:</label>
+                        <input type="text" size="10" name="zip">
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label>Country:</label>
+                        <input type="text" size="10" name="country">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tell us a little bit about yourself.</label>
+                        <p>Like what? Well, hell, I dunno. Anything you think is worth mentioning:</p>
+                        <textarea name="aboutme" rows="10" cols="60">Uh, well, I play Ultima. :)
+                        </textarea>
+                    </div>
+
+                    <input type="submit" value="Sign Me Up!">
+
+                    <p>
+                        There will be a delay of up to 60 seconds while your application is being delivered.
+                        Please be patient and do not abort the transfer.
+                    </p>
+                </form>
+            </section>
+
+            <section id="join-requirements">
+                <h2>Dragon Requirements</h2>
+
+                <h3>A message from Fallible Dragon...</h3>
+
+                <p>
+                    You are viewing this message either because you are concerned about giving out your real
+                    name, or because you haven't yet played an Ultima. These are requirements for joining,
+                    and I'll address each in turn.
+                </p>
+
+                <p>
+                    First, where it asks for real name, you have to type in your real name. If you're really
+                    concerned, you can use your first initial and your last name. But it has to be your real
+                    name. The whole thing. &quot;John&quot; alone won't cut it. We want to see &quot;John
+                    Doe&quot; or &quot;J. Doe&quot;.
+                </p>
+
+                <p>
+                    This is a question of honesty and respect. You being honest with the rest of the club
+                    and respecting us, and the rest of the club respecting you in return. How can we respect
+                    you if you don't feel we're worthy of knowing your name? If you really don't want to
+                    give out your real name, then you're welcome to lurk and participate in the activities,
+                    but please don't waste your time by filling out an application.
+                </p>
+
+                <p>
+                    Second, you have to have played an Ultima in order to be in the Ultima Dragons. The
+                    members of this club come from all ages, from all over the world, and from all walks of
+                    life. The common thread that binds us is that we all play and love Ultima. If you don't
+                    play Ultima or don't like Ultima then quite frankly you won't fit in.
+                </p>
+
+                <p>
+                    If you've met some Dragons, like the group, and are really interested in joining, yet
+                    haven't played an Ultima then there is a solution for you: Go buy an Ultima and play for
+                    about a week. Get the one that you'll like best. Ultima IV is the classic, but the
+                    technology is old. Ultima Underworld is satisfying for folks who like Doom. Ultima VII
+                    part II is pretty good for you if you want to get into the more recent games in the
+                    Ultima series. Whatever. The point is, find out if you like Ultima before you join.
+                </p>
+
+                <p>
+                    Now, there's no test for any of this. Unless you're blatantly obvious, we'll take you at
+                    your word. But if you lie, eventually we'll find out and then your membership will be
+                    very publicly revoked.
+                </p>
+
+                <p>
+                    So please, play an Ultima and use your real name. If you're an Ultima lover like the
+                    rest of us, then we want you to be one of us.
+                </p>
+
+                <p>
+                    Sincerely,<br>
+                    Fallible Dragon<br>
+                    a.k.a. William Herrin
+                </p>
+            </section>
+
+            <section id="resources">
+                <h2>Dragon's Internet Resources</h2>
+                <div class="center"><img src="images/hrankh2.gif"></div>
+
+                <p>There is a lot of good stuff available on the Internet about the Dragons.</p>
+
+                <h3>Info:</h3>
+                <ul class="bullets-dragon">
+                    <li>
+                        Frequently Asked Questions (<a href="minifaq.html">Short Version</a>,
+                        <a href="faq.html">Long Version</a>).
+                    </li>
+                    <li>
+                        A <a href="http://www.cs.purdue.edu/homes/kidder/contents.html">History</a> of the
+                        Ultima Dragons.
+                    </li>
+                </ul>
+
+                <h3>Sites:</h3>
+                <ul class="bullets-dragon">
+                    <li>
+                        The Dragons have an <a href="http://ftp.udic.org/ftpud/">FTP site</a> in
+                        <strong>/pub/ud</strong> on <strong>ftp.udic.org</strong>.
+                    </li>
+                    <li>
+                        Usenet Newsgroup:
+                        <a href="news:rec.games.computer.ultima.dragons">rec.games.computer.ultima.dragons</a>.
+                        Also, please read the
+                        <a href="http://wwwa7.udic.org/~charlton/andrew/rgcudfaq.html">rec.games.computer.ultima-dragons
+                        FAQ</a>.
+                    </li>
+                    <li>
+                        A lot of Dragons hang out on the <a href="http://weyr.udic.org/weyrmount/">Weyrmount
+                        MOO</a>, part of the <a href="http://sensemedia.net/">SenseMedia Network</a>. Also
+                        see the <a href="http://www.cs.cmu.edu/~rgregg/ultima/weyrmount.faq">Weyrmount
+                        FAQ</a>.
+                    </li>
+                    <li>
+                        <a href="http://ircweb.udic.org/~vhm/udic.html">#udic</a> Undernet IRC Channel.
+                    </li>
+                    <li>
+                        <a href="http://wwwa7.udic.org/~charlton/andrew/fanfic/">Dragon Press</a>: Ultima
+                        &amp; Dragons' Fan Fiction.
+                    </li>
+                    <li>
+                        <a href="http://wwwa7.udic.org/~charlton/andrew/ring.html">
+                            <img src="images/drings.gif" alt="[Ring]" align="middle" border="0" width="50" height="32">
+                        </a> The <a href="http://www.webring.org/cgi-bin/webring?ring=dragon&amp;home">Ring
+                        of Dragons</a>
+                    </li>
+                </ul>
+
+                <h3>Members:</h3>
+                <ul class="bullets-dragon">
+                    <li>
+                        Dragons' Web home pages, courtesy of Minstrel and Geo (Link:
+                        <a href="http://wwwa2.udic.org/~brenner/udic/homes.html">Europe</a>,
+                        <a href="http://roster-us.udic.org/~counts/udic/pages.html">US</a>)
+                    </li>
+                    <li>
+                        Rainbow Dragon's UDIC <a href="http://wwwa4.udic.org/~dmb1236/udic/">photo gallery</a>.
+                    </li>
+                    <li>
+                        The <a href="members/roster.cgi">current member roster</a> and the
+                        <a href="members/grosterd.html">grand roster</a> of all who have been members of the
+                        Dragons.
+                    </li>
+                    <li>
+                        Members Only <a href="members/">Login</a>
+                    </li>
+                </ul>
+
+                <h3>Misc:</h3>
+                <ul class="bullets-dragon">
+                    <li>
+                        <a href="http://adm3.rad.tju.edu/~gs/">Age of the Dragon</a>, CRPG in production by
+                        UDIC members
+                    </li>
+                    <li>
+                        The <a href="http://dlf.udic.org/warf/dlf.htm">Dragon Liberation Front</a>. (DLF,
+                        versus the PVLBs)
+                    </li>
+                    <li>
+                        The <a href="http://www.bestware.net/whisper/pvlb.shtml">Protectors of Virtue and
+                        Lord British</a> (PVLB, versus the DLF and the EAs.)
+                    </li>
+                    <li>
+                        The <a href="http://dfb.udic.org/dragons/dfb.htm">Dragons Front of Britannia</a>
+                        (DFB, versus no one in particular).
+                    </li>
+                    <li>
+                        A history of <a href="http://wwwa3.udic.org/~cpc/udic/lore.1.htm">Dragons in
+                        Britannia</a>.
+                    </li>
+                </ul>
+
+                <h3>Major Ultima Archives</h3>
+                <ul class="bullets-dragon">
+                    <li>
+                        <a href="http://www.origin.ea.com/">Origin</a>'s
+                        <a href="http://www.owo.com/archive/">Ultima Archive</a> (and
+                        <a href="http://www.owo.com/archive/ftp/">FTP site</a>)
+                    </li>
+
+                    <li>
+                        <a href="http://wou.udic.org/~redjr/">World of Ultima</a> (Ultima Clues, very
+                        graphical)
+                    </li>
+
+                    <li>
+                        <a href="http://www.geocities.com/TimesSquare/Alley/1769/">Micro Dragon's Site</a>
+                        (Ultima Theme, Manuals, etc)
+                    </li>
+
+                    <li>
+                        <a href="http://www.bestware.net/whisper/woo/">Worlds of Origin</a> (About all
+                        Origin games including Ultima)
+                    </li>
+
+                    <li>
+                        <a href="http://www.scott.net/~rgregg/ultima/">Ultima Resource Page</a>
+                        (Miscellaneous Ultima Stuff)
+                    </li>
+
+                    <li>
+                        <a href="http://www.surfing.net/ultima/">Mysterious Sosaria</a> (Bard's Library,
+                        Weapons List)
+                    </li>
+
+                    <li>
+                        Usenet Newsgroups:
+                        <a href="news:rec.games.computer.ultima.online">rec.games.computer.ultima.online</a>
+                        and <a href="news:rec.games.computer.ultima.series">rec.games.computer.ultima.series</a>.
+                    </li>
+                </ul>
+            </section>
+
+            <hr class="hr-ankh">
+
+            <p>
+                <a class="link-img" href="minifaq.html">
+                    <img src="images/p3faq.gif" alt="FAQ">
+                </a>
+                <a class="link-img" href="#resources">
+                    <img src="images/p3links.gif" alt="Links">
+                </a>
+                <a class="link-img" href="http://wou.udic.org/~redjr/">
+                    <img src="images/p3ultima.gif" alt="Ultima">
+                </a>
+            </p>
+
+        </div>
+
+        <script>
+            function hashnav(){
+                var hash = document.location.hash || '#main';
+                $('section').hide()
+                $(hash).show();
+                if(hash != '#main') {
+                    $('#logo').css('width', '450px');
+                } else {
+                    $('#logo').css('width', '948px');
+                }
+                setTimeout(function() {
+                    window.scrollTo(0, 0);
+                }, 1);
+            }
+
+            $(document).ready(function() {
+                hashnav();
+                $(window).bind( 'hashchange', function() {
+                    hashnav();
+                    return false;
+                });
+
+
+                sequence = [110, 97, 109, 101, 13, 106, 111, 98, 13];
+                count = 0;
+                $(window).keypress(function(e) {
+                    if(e.keyCode == sequence[count]) {
+                        count++;
+                        if(count == 9) {
+                            $('head [rel=stylesheet]').attr('href', 'css/default.css');
+                        }
+                    } else {
+                        count = 0;
+                    }
+                });
+            });
+        </script>
 
     </body>
 </html>

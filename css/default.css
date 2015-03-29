@@ -1,6 +1,6 @@
 body {
     background-color: #FFF;
-    background-image: url(back/home_bg.jpg);
+    background-image: url(../images/home_bg.jpg);
     color: #000;
 }
 
@@ -26,7 +26,7 @@ label {
 }
 
 .bullets-dragon {
-    list-style-image: url(inline/dragon5.gif);
+    list-style-image: url(../images/dragon5.gif);
 }
 
 .bullets-dragon li {
@@ -36,7 +36,7 @@ label {
 }
 
 .hr-ankh {
-    background:url(inline/hrankh4.gif) no-repeat top left;
+    background:url(../images/hrankh4.gif) no-repeat top left;
     border: 0;
     display: block;
     height: 14px;
