@@ -72,6 +72,41 @@ label {
     display: inline;
 }
 
+#logo {
+    max-width: 100%;
+    height: auto;
+}
+
 #form-join p {
     margin: 0 0 10px 0;
+}
+
+.accordion {
+   margin: 50px;
+}
+
+.accordion dt {
+    padding: 10px;
+    background: #EAEAEA;
+    border: 1px solid black;
+    border-bottom: 0;
+    cursor: pointer;
+}
+
+.accordion dd {
+    border: 1px solid black;
+    border-top: 0;
+    padding: 10px;
+    border-bottom: 0;
+}
+
+.accordion dt:last-of-type {
+    border-bottom: 1px solid black;
+}
+
+.accordion dd:last-of-type {
+    border-bottom: 1px solid black;
+    border-top: 1px solid white;
+    position: relative;
+    top: -1px;
 }
